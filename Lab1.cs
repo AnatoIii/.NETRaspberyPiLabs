@@ -9,6 +9,9 @@ public class Lab1
     // LED sleep time
     private const int _sleepLedTimeMs = 300;
 
+    /// <summary>
+    /// Configure the LED so that it burns for 300ms and does not burn for 300ms.
+    /// </summary>
     public static void Run()
     {
         using (var controller = new GpioController())

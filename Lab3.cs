@@ -22,7 +22,7 @@ public class Lab3
 
     // current PWM
     private static double _currentPwm = 1;
-
+    // PwmChannel instance
     private static PwmChannel _pwmChannel;
 
     static Lab3()
@@ -30,6 +30,7 @@ public class Lab3
         _pwmChannel = PwmChannel.Create(_chip, _channel, _hertz, _currentPwm);
     }
 
+    // callback for increase button click event
     private static void _OnIncreaseEvent(object sender, PinValueChangedEventArgs args)
     {
         // check if value can be increased
@@ -42,6 +43,7 @@ public class Lab3
         }
     }
 
+    // callback for decrease button click event
     private static void _OnDecreaseEvent(object sender, PinValueChangedEventArgs args)
     {
         // check if value can be decreased
@@ -54,6 +56,10 @@ public class Lab3
         }
     }
 
+    /// <summary>
+    /// Configuring 2 LEDs. One glows constantly at full power. The second glows depending 
+    /// on the set mode (using the power increase and decrease buttons) by 0, 20, 40, 60, 80 or 100%.
+    /// </summary>
     public static void Run()
     {
         using (var gpioController = new GpioController())
@@ -86,4 +92,3 @@ public class Lab3
         }
     }
 }
-//-_-\\

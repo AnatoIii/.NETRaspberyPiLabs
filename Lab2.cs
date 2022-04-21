@@ -16,6 +16,7 @@ public class Lab2
     // indicate active LED time (_activeLedTimeMs * _multiplicator)
     private static int _lightTime = _activeLedTimeMs;
     
+    // callback for button click event
     private static void _OnSignalPinValueChangedEvent(object sender, PinValueChangedEventArgs args)
     {
         // button pressed
@@ -34,6 +35,10 @@ public class Lab2
         Console.WriteLine($"Value changed to {_lightTime}");
     }
 
+    /// <summary>
+    /// We configure the LED so that it burns for 300, 600, 900, 1200 or 
+    /// 1500 ms (depending on the number of button presses) and does not burn for 200ms.
+    /// </summary>
     public static void Run()
     {
         using (var controller = new GpioController())
